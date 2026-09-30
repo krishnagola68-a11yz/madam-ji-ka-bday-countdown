@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: radial-gradient(circle at top, #35152d 0%, transparent 40%), linear-gradient(135deg, #09000a, #170812, #050006);
+    overflow: hidden;
+}
+
+
+/* Background Stars */
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: radial-gradient(white 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px;
+    animation: moveStars 20s linear infinite;
+    opacity: 0.35;
+}
+
+@keyframes moveStars {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* Main Container */
+
+.container {
+    position: relative;
+    width: min(900px, 90%);
+    text-align: center;
+    padding: 50px 25px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 50px rgba(255, 60, 150, 0.12);
+    z-index: 2;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Small Text */
+
+.small-text {
+    font-size: 15px;
+    color: #d9b8ca;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+
+/* Heading */
+
+h1 {
+    font-size: clamp(40px, 8vw, 75px);
+    margin-bottom: 15px;
+    background: linear-gradient( 90deg, #fff, #ff8fc4, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+
+/* Subtitle */
+
+.subtitle {
+    font-size: 18px;
+    color: #d8c3cf;
+    margin-bottom: 40px;
+}
+
+
+/* Countdown */
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+
+/* Time Box */
+
+.time-box {
+    width: 150px;
+    padding: 25px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02), 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+.time-box:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 120, 180, 0.5);
+    box-shadow: 0 0 30px rgba(255, 80, 160, 0.18);
+}
+
+
+/* Numbers */
+
+.time-box span {
+    display: block;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* Labels */
+
+.time-box small {
+    display: block;
+    margin-top: 8px;
+    color: #d9b8ca;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* Date */
+
+.date {
+    margin-top: 35px;
+    font-size: 14px;
+    color: #bfa7b4;
+    letter-spacing: 1px;
+}
+
+
+/* Heart */
+
+.heart {
+    margin-top: 25px;
+    font-size: 35px;
+    color: #ff6fae;
+    animation: heartbeat 1.4s infinite;
+    text-shadow: 0 0 20px rgba(255, 80, 150, 0.7);
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 35px 15px;
+    }
+    .subtitle {
+        font-size: 15px;
+    }
+    .time-box {
+        width: 125px;
+        padding: 20px 10px;
+    }
+    .time-box span {
+        font-size: 38px;
+    }
+}
